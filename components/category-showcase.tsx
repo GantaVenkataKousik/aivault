@@ -22,7 +22,7 @@ export default function CategoryShowcase({ categories }: CategoryShowcaseProps) 
 
         <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 custom-scrollbar">
           {categories.map((category) => (
-            <Link key={category.id} href={`/categories/${category.id}`}>
+            <Link key={category.id} href={`/categories/${category.slug}`}>
               <div className="glass-card glass-card-hover rounded-xl p-4 md:p-6 h-full group">
                 <div className="flex items-center justify-between mb-4 md:mb-6">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center text-2xl bg-gradient-to-br from-neon-green/20 to-neon-blue/20 backdrop-blur-md border border-white/10">
