@@ -1,0 +1,440 @@
+import type { Tool, Category } from "./types"
+
+// Categories with their descriptions and icons
+const categories: Category[] = [
+  {
+    id: "ai-assistants",
+    name: "AI Assistants",
+    description: "Virtual assistants powered by AI for various tasks and conversations",
+    icon: "🤖",
+  },
+  {
+    id: "video-generation",
+    name: "Video Generation",
+    description: "Tools for creating and editing videos using AI capabilities",
+    icon: "🎬",
+  },
+  {
+    id: "image-generation",
+    name: "Image Generation",
+    description: "Tools that create images and art from text descriptions",
+    icon: "🎨",
+  },
+  {
+    id: "writing-grammar",
+    name: "Writing & Grammar",
+    description: "Tools for improving writing, grammar checking, and content creation",
+    icon: "✍️",
+  },
+  {
+    id: "coding-development",
+    name: "Coding & Development",
+    description: "AI tools for software development, coding, and programming",
+    icon: "💻",
+  },
+  {
+    id: "voice-audio",
+    name: "Voice & Audio",
+    description: "Tools for voice recognition, audio editing, and speech synthesis",
+    icon: "🔊",
+  },
+  {
+    id: "social-media",
+    name: "Social Media",
+    description: "AI tools for social media management, content, and analytics",
+    icon: "📱",
+  },
+  {
+    id: "productivity",
+    name: "Productivity",
+    description: "Tools to enhance workflow, organization, and efficiency",
+    icon: "⚡",
+  },
+  {
+    id: "marketing",
+    name: "Marketing",
+    description: "AI tools for digital marketing, campaigns, and automation",
+    icon: "📈",
+  },
+  {
+    id: "seo-tools",
+    name: "SEO Tools",
+    description: "AI-powered tools for search engine optimization and visibility",
+    icon: "🔍",
+  },
+  {
+    id: "customer-service",
+    name: "Customer Service",
+    description: "AI chatbots and tools for customer support and engagement",
+    icon: "💬",
+  },
+  {
+    id: "email-assistants",
+    name: "Email Assistants",
+    description: "Tools for managing, composing, and optimizing emails",
+    icon: "📧",
+  },
+]
+
+// Sample AI tools data
+const tools: Tool[] = [
+  // AI Assistants
+  {
+    id: "chatgpt",
+    name: "ChatGPT",
+    description: "An AI language model developed by OpenAI that can generate human-like text based on the input it receives.",
+    category: "ai-assistants",
+    tags: ["Language Model", "Text Generation", "Conversational AI"],
+    url: "https://chat.openai.com",
+    rating: 5,
+    pricing: "Free / Premium",
+    features: ["Text generation", "Conversation", "Content creation", "Code assistance"],
+    lastUpdated: "2023-10-15",
+  },
+  {
+    id: "claude",
+    name: "Claude",
+    description: "Anthropic's conversational AI assistant designed to be helpful, harmless, and honest.",
+    category: "ai-assistants",
+    tags: ["Conversational AI", "Text Generation", "Research"],
+    url: "https://claude.ai",
+    rating: 5,
+    pricing: "Free / Premium",
+    features: ["Long context", "Document analysis", "Thoughtful responses", "Safety focused"],
+    lastUpdated: "2023-11-20",
+  },
+  {
+    id: "gemini",
+    name: "Gemini",
+    description: "Google's multimodal AI assistant that can understand and process text, images, and other forms of data.",
+    category: "ai-assistants",
+    tags: ["Multimodal", "Search", "Google"],
+    url: "https://gemini.google.com",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Web search", "Information synthesis", "Multimodal capabilities"],
+    lastUpdated: "2023-12-10",
+  },
+  {
+    id: "perplexity",
+    name: "Perplexity AI",
+    description: "An AI assistant focused on providing accurate, cited information from across the web.",
+    category: "ai-assistants",
+    tags: ["Research", "Citations", "Information retrieval"],
+    url: "https://perplexity.ai",
+    rating: 4,
+    pricing: "Free / Pro",
+    features: ["Web search", "Citation", "Accuracy", "Research-oriented"],
+    lastUpdated: "2023-09-05",
+  },
+  {
+    id: "copilot",
+    name: "Microsoft Copilot",
+    description: "Microsoft's AI assistant that integrates with Microsoft 365 apps and Windows.",
+    category: "ai-assistants",
+    tags: ["Microsoft", "Office integration", "Windows"],
+    url: "https://copilot.microsoft.com",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Office integration", "Creative writing", "Windows integration"],
+    lastUpdated: "2023-08-15",
+  },
+  {
+    id: "pi",
+    name: "Pi",
+    description: "An AI assistant designed for natural conversations and personal support.",
+    category: "ai-assistants",
+    tags: ["Personal assistant", "Conversation", "Coaching"],
+    url: "https://pi.ai",
+    rating: 3,
+    pricing: "Free",
+    features: ["Personal coaching", "Natural conversation", "Empathetic responses"],
+    lastUpdated: "2023-07-22",
+  },
+  {
+    id: "poe",
+    name: "Poe",
+    description: "A platform that provides access to multiple AI models in one place with a conversational interface.",
+    category: "ai-assistants",
+    tags: ["Multiple models", "Platform", "Quora"],
+    url: "https://poe.com",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Multiple AI models", "Custom bots", "API access"],
+    lastUpdated: "2023-06-14",
+  },
+  {
+    id: "bing-chat",
+    name: "Bing Chat",
+    description: "Microsoft's AI-powered chat interface integrated with Bing search.",
+    category: "ai-assistants",
+    tags: ["Search", "Microsoft", "Bing"],
+    url: "https://bing.com/chat",
+    rating: 3,
+    pricing: "Free",
+    features: ["Web search", "Conversation", "Citation"],
+    lastUpdated: "2023-05-30",
+  },
+  {
+    id: "replika",
+    name: "Replika",
+    description: "An AI companion designed for friendly conversation and emotional support.",
+    category: "ai-assistants",
+    tags: ["Companion", "Emotional support", "Personalized"],
+    url: "https://replika.com",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Personalized conversation", "Emotional support", "Relationship building"],
+    lastUpdated: "2023-04-25",
+  },
+  {
+    id: "character-ai",
+    name: "Character.AI",
+    description: "Platform for creating and chatting with AI characters with distinct personalities.",
+    category: "ai-assistants",
+    tags: ["Characters", "Roleplay", "Conversation"],
+    url: "https://character.ai",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Character creation", "Roleplay", "Community"],
+    lastUpdated: "2023-03-18",
+  },
+  
+  // Video Generation
+  {
+    id: "synthesia",
+    name: "Synthesia",
+    description: "AI video generation platform that creates videos with virtual avatars from text.",
+    category: "video-generation",
+    tags: ["Video Creation", "Avatars", "Text-to-Video"],
+    url: "https://www.synthesia.io",
+    rating: 5,
+    pricing: "Subscription",
+    features: ["AI avatars", "Multiple languages", "Custom backgrounds", "Script editing"],
+    lastUpdated: "2023-11-05",
+  },
+  {
+    id: "runway",
+    name: "Runway",
+    description: "Creative toolkit with AI video editing, effects, and generation capabilities.",
+    category: "video-generation",
+    tags: ["Video Editing", "Motion Graphics", "Creative Tools"],
+    url: "https://runwayml.com",
+    rating: 5,
+    pricing: "Subscription",
+    features: ["Gen-2 video generation", "Motion brush", "Inpainting", "Green screen"],
+    lastUpdated: "2023-10-12",
+  },
+  {
+    id: "d-id",
+    name: "D-ID",
+    description: "Platform for creating talking head videos from text using AI avatars.",
+    category: "video-generation",
+    tags: ["Talking Heads", "Avatars", "Presentation"],
+    url: "https://www.d-id.com",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Avatar customization", "Text-to-speech", "Speaking portrait creation"],
+    lastUpdated: "2023-09-28",
+  },
+  
+  // Image Generation
+  {
+    id: "midjourney",
+    name: "Midjourney",
+    description: "AI art generator that creates images from textual descriptions.",
+    category: "image-generation",
+    tags: ["Art Generation", "Text-to-Image", "Creative"],
+    url: "https://www.midjourney.com",
+    rating: 5,
+    pricing: "Subscription",
+    features: ["High-quality images", "Style variations", "Discord integration"],
+    lastUpdated: "2023-12-01",
+  },
+  {
+    id: "dall-e",
+    name: "DALL-E",
+    description: "OpenAI's text-to-image model that generates images from natural language descriptions.",
+    category: "image-generation",
+    tags: ["Text-to-Image", "OpenAI", "Creative"],
+    url: "https://openai.com/dall-e-3",
+    rating: 5,
+    pricing: "Credits / Subscription",
+    features: ["Detailed prompts", "Outpainting", "Variations", "Editing"],
+    lastUpdated: "2023-11-25",
+  },
+  {
+    id: "stable-diffusion",
+    name: "Stable Diffusion",
+    description: "Open-source text-to-image model that can run locally or through various interfaces.",
+    category: "image-generation",
+    tags: ["Open Source", "Text-to-Image", "Customizable"],
+    url: "https://stability.ai",
+    rating: 4,
+    pricing: "Free / Premium Services",
+    features: ["Local installation", "Model fine-tuning", "Community extensions"],
+    lastUpdated: "2023-10-30",
+  },
+  
+  // Writing & Grammar
+  {
+    id: "grammarly",
+    name: "Grammarly",
+    description: "AI writing assistant that helps with grammar, clarity, and writing style.",
+    category: "writing-grammar",
+    tags: ["Grammar", "Editing", "Writing Assistant"],
+    url: "https://www.grammarly.com",
+    rating: 5,
+    pricing: "Free / Premium",
+    features: ["Grammar checking", "Style suggestions", "Tone detection", "Plagiarism detection"],
+    lastUpdated: "2023-12-05",
+  },
+  {
+    id: "jasper",
+    name: "Jasper",
+    description: "AI content platform that helps create marketing copy, blog posts, and other content.",
+    category: "writing-grammar",
+    tags: ["Content Creation", "Marketing", "Copywriting"],
+    url: "https://www.jasper.ai",
+    rating: 4,
+    pricing: "Subscription",
+    features: ["Templates", "Long-form assistant", "SEO mode", "Brand voice"],
+    lastUpdated: "2023-11-18",
+  },
+  
+  // Coding & Development
+  {
+    id: "github-copilot",
+    name: "GitHub Copilot",
+    description: "AI pair programmer that suggests code completions based on context.",
+    category: "coding-development",
+    tags: ["Coding Assistant", "Pair Programming", "Suggestions"],
+    url: "https://github.com/features/copilot",
+    rating: 5,
+    pricing: "Subscription",
+    features: ["Code completion", "Multiple languages", "IDE integration", "Natural language to code"],
+    lastUpdated: "2023-12-10",
+  },
+  {
+    id: "huggingface",
+    name: "Hugging Face",
+    description: "Platform for building, training and deploying state-of-the-art machine learning models.",
+    category: "coding-development",
+    tags: ["Machine Learning", "NLP", "Model Deployment"],
+    url: "https://huggingface.co",
+    rating: 5,
+    pricing: "Free / Enterprise",
+    features: ["Model hosting", "Dataset management", "ML collaboration"],
+    lastUpdated: "2023-09-20",
+  },
+  
+  // Voice & Audio
+  {
+    id: "descript",
+    name: "Descript",
+    description: "All-in-one audio/video editing platform with AI-powered features like text-based editing and voice cloning.",
+    category: "voice-audio",
+    tags: ["Audio Editing", "Voice Cloning", "Transcription"],
+    url: "https://www.descript.com",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Text-based editing", "Voice cloning", "Transcription", "Studio sound"],
+    lastUpdated: "2023-11-15",
+  },
+  
+  // Design / Other categories
+  {
+    id: "canva",
+    name: "Canva",
+    description: "Design platform with AI-powered features for creating graphics, presentations, and visual content.",
+    category: "productivity",
+    tags: ["Graphic Design", "Templates", "Visual Content"],
+    url: "https://www.canva.com",
+    rating: 5,
+    pricing: "Free / Premium",
+    features: ["Design templates", "AI image generation", "Collaboration"],
+    lastUpdated: "2023-10-05",
+  },
+  {
+    id: "notion-ai",
+    name: "Notion AI",
+    description: "AI writing assistant integrated into Notion that helps you draft, edit, summarize, and brainstorm content.",
+    category: "productivity",
+    tags: ["Writing Assistant", "Note-taking", "Productivity"],
+    url: "https://www.notion.so/product/ai",
+    rating: 4,
+    pricing: "Subscription (addon)",
+    features: ["Writing assistance", "Summarization", "Content generation"],
+    lastUpdated: "2023-08-10",
+  },
+  {
+    id: "krisp",
+    name: "Krisp",
+    description: "AI-powered noise cancellation app that removes background noise and echo from calls.",
+    category: "productivity",
+    tags: ["Noise Cancellation", "Audio", "Meetings"],
+    url: "https://krisp.ai",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Noise cancellation", "Echo removal", "Voice enhancement"],
+  },
+  {
+    id: "copy-ai",
+    name: "Copy.ai",
+    description: "AI copywriting tool that generates marketing copy, social media content, and more.",
+    category: "marketing",
+    tags: ["Copywriting", "Marketing", "Content Creation"],
+    url: "https://www.copy.ai",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Marketing copy", "Social media content", "Email writing"],
+  },
+  {
+    id: "otter-ai",
+    name: "Otter.ai",
+    description: "AI-powered meeting assistant that records, transcribes, and summarizes conversations in real-time.",
+    category: "productivity",
+    tags: ["Transcription", "Meeting Assistant", "Notes"],
+    url: "https://otter.ai",
+    rating: 4,
+    pricing: "Free / Premium",
+    features: ["Transcription", "Meeting summaries", "Collaboration"],
+  },
+  {
+    id: "tableau",
+    name: "Tableau",
+    description: "Data visualization software with AI capabilities for business intelligence and analytics.",
+    category: "research",
+    tags: ["Data Visualization", "Analytics", "Business Intelligence"],
+    url: "https://www.tableau.com",
+    rating: 5,
+    pricing: "Subscription",
+    features: ["Data visualization", "Analytics", "Dashboard creation"],
+  },
+]
+
+// Function to get all tools
+export async function getAllTools(): Promise<Tool[]> {
+  // In a real application, this would fetch from an API or database
+  return tools
+}
+
+// Function to get tools by category
+export async function getToolsByCategory(categoryId: string): Promise<Tool[]> {
+  return tools.filter((tool) => tool.category === categoryId)
+}
+
+// Function to get a single tool by ID
+export async function getToolById(id: string): Promise<Tool | undefined> {
+  return tools.find((tool) => tool.id === id)
+}
+
+// Function to get all categories
+export async function getCategories(): Promise<Category[]> {
+  return categories
+}
+
+// Function to get a single category by ID
+export async function getCategoryById(id: string): Promise<Category | undefined> {
+  return categories.find((category) => category.id === id)
+}
