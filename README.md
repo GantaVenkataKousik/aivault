@@ -1,5 +1,13 @@
 # AIVault - The Ultimate AI Tools Directory
 
+<p align="center">
+  <img src="public/preview.png" alt="AIVault Preview" width="800">
+</p>
+
+## 📝 Project Description
+
+AIVault is a modern, responsive web application that serves as a comprehensive directory for AI tools. Built with Next.js and Tailwind CSS, this platform helps users discover and explore cutting-edge AI solutions across various categories. Whether you're looking for AI assistants, image generators, coding tools, or productivity enhancers, AIVault provides a clean, intuitive interface to find the perfect tool for your needs.
+
 AIVault is a comprehensive directory showcasing the best AI tools across various categories. From AI assistants to image generators, coding tools, and more, AIVault helps users discover cutting-edge AI solutions to enhance productivity, creativity, and workflow.
 
 ## ✨ Features
@@ -107,4 +115,16 @@ For any inquiries or feedback, please contact:
 
 <p align="center">
   Made with ❤️ by <a href="https://linktr.ee/GantaVenkataKousik">Ganta Venkata Kousik</a>
-</p> 
+</p>
+
+<!-- 
+Commit: feat: Complete initial implementation of AIVault directory
+
+- Redesigned responsive logo with proper spacing
+- Fixed mobile and desktop navigation
+- Added proper home navigation in navbar
+- Optimized hero section for all screen sizes
+- Fixed category showcase section layout
+- Improved overall UI responsiveness
+- Added comprehensive README documentation
+--> 

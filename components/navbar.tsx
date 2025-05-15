@@ -83,6 +83,14 @@ export default function Navbar({ activeItem }: NavbarProps) {
           </div>
 
           <div className="hidden lg:flex items-center space-x-1">
+            <Link
+              href="/"
+              className={`px-3 py-2 font-medium ${
+                isActive("home") ? "text-emerald-400" : "text-gray-300 hover:text-white"
+              }`}
+            >
+              Home
+            </Link>
             <div className="relative group px-3 py-2">
               <Link
                 href="/categories"
@@ -225,6 +233,17 @@ export default function Navbar({ activeItem }: NavbarProps) {
               />
             </form>
             <div className="space-y-1 pt-2">
+              <Link
+                href="/"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 text-base font-medium rounded-md ${
+                  isActive("home")
+                    ? "bg-emerald-500/10 text-emerald-400"
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                Home
+              </Link>
               <Link
                 href="/categories"
                 onClick={() => setIsMenuOpen(false)}
