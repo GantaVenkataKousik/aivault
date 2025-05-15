@@ -178,12 +178,6 @@ export default async function ToolPage({ params }: { params: { id: string } }) {
                   <h3 className="text-sm font-medium text-gray-400 mb-2">Compatibility</h3>
                   <p className="text-white">Web, iOS, Android</p>
                 </div>
-
-                <div className="pt-4">
-                  <Button variant="outline" className="w-full border-white/10 hover:bg-white/5 text-white rounded-full">
-                    Add to Favorites
-                  </Button>
-                </div>
               </div>
             </div>
           </div>

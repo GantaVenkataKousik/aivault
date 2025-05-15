@@ -283,46 +283,16 @@ function getToolDescription(name: string, category: string): string {
 
 // Helper function to get tags for specific tools
 function getToolTags(name: string, category: string): string[] {
-  const tagMap: Record<string, string[]> = {
-    // Video Generation
-    "Synthesia": ["AI Avatars", "Text-to-Video", "Multilingual"],
-    "Runway": ["Video Editing", "AI Generation", "Motion Graphics"],
-    "D-ID": ["Talking Heads", "Avatars", "Presentation"],
-    "Lumen5": ["Content Repurposing", "Marketing", "Social Media"],
-    "DeepBrain AI": ["AI Presenters", "Corporate Videos", "Realistic Avatars"],
-    "InVideo": ["Templates", "Marketing", "Easy Editing"],
-    "Elai.io": ["No-code", "AI Presenters", "Text to Video"],
-    
-    // Coding & Development
-    "GitHub Copilot": ["Code Completion", "Pair Programming", "Multiple Languages"],
-    "Cursor": ["Code Editor", "Chat Assistant", "Code Understanding"],
-    "Tabnine": ["Code Completion", "IDE Integration", "Multiple Languages"],
-    "Codeium": ["Free", "IDE Extension", "Code Completion"],
-    "OpenAI Codex": ["Natural Language", "Code Generation", "API"],
-    "Replit Ghostwriter": ["Pair Programming", "Online IDE", "Code Generation"],
-    
-    // Writing & Grammar
-    "Grammarly": ["Grammar Checker", "Writing Assistant", "Style Editing"],
-    "QuillBot": ["Paraphrasing", "Summarization", "Grammar"],
-    "Wordtune": ["Rewriting", "Tone Adjustment", "Clarity"],
-    "Hemingway Editor": ["Readability", "Simplification", "Editing"],
-    "Sudowrite": ["Fiction", "Creative Writing", "Story Generation"],
-    "ProWritingAid": ["Style Analysis", "Grammar", "Writing Reports"],
-    
-    // Email Assistants
-    "Superhuman": ["Email Client", "Productivity", "Speed"],
-    "SaneBox": ["Email Filtering", "Priority Inbox", "Organization"],
-    "Shortwave": ["Smart Inbox", "Organization", "Automation"],
-    "Lavender": ["Email Coaching", "Response Rate", "Writing Assistant"],
-    "Flowrite": ["Email Generation", "Templates", "Browser Extension"],
-    "Gmelius": ["Gmail", "Collaboration", "Workflow"],
-    "Mailbutler": ["Email Tracking", "Scheduling", "Templates"],
+  const baseTags = [category.toLowerCase().replace(/\s+/g, ''), 'ai']
+  
+  const specificTags: Record<string, string[]> = {
+    "ChatGPT": ["chatbot", "language model", "openai"],
+    "Claude": ["chatbot", "anthropic", "reasoning"],
+    "DALL-E": ["image", "art", "openai"],
+    "Midjourney": ["art", "design", "image generation"],
+    "GitHub Copilot": ["coding", "programming", "developer"],
+    "Notion AI": ["workspace", "productivity", "notes"],
   }
-
-  return tagMap[name] || 
-    category === "Writing & Grammar" ? ["Writing", "AI Assistant", "Content"] :
-    category === "Coding & Development" ? ["Coding", "Development", "AI Assistant"] :
-    category === "Video Generation" ? ["Video", "Content Creation", "AI Generation"] :
-    category === "Email Assistants" ? ["Email", "Productivity", "Communication"] :
-    ["AI Tool", category, "Productivity"]
+  
+  return specificTags[name] || [...baseTags, 'productivity', 'tool']
 } 
