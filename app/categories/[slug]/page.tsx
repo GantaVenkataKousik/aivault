@@ -15,19 +15,18 @@ interface CategoryPageProps {
 
 export async function generateStaticParams() {
   const categoryMap: Record<string, string> = {
-    'development': 'Development',
-    'design': 'Design',
-    'writing': 'Writing & Content',
+    'ai-assistants': 'AI Assistants',
+    'video-generation': 'Video Generation',
+    'image-generation': 'Image Generation',
+    'writing-grammar': 'Writing & Grammar',
+    'coding-development': 'Coding & Development',
+    'voice-audio': 'Voice & Audio',
+    'social-media': 'Social Media',
     'productivity': 'Productivity',
     'marketing': 'Marketing',
-    'video-audio': 'Video & Audio',
-    'image-generation': 'Image Generation',
-    'ai-assistants': 'AI Assistants',
-    'social-media': 'Social Media',
-    'seo': 'SEO Tools',
+    'seo-tools': 'SEO Tools',
     'customer-service': 'Customer Service',
-    'email': 'Email Assistants',
-    'voice-audio': 'Voice & Audio'
+    'email-assistants': 'Email Assistants'
   }
   
   return Object.keys(categoryMap).map(slug => ({
@@ -42,19 +41,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   
   // Map slug to category name
   const categoryMap: Record<string, string> = {
-    'development': 'Development',
-    'design': 'Design',
-    'writing': 'Writing & Content',
+    'ai-assistants': 'AI Assistants',
+    'video-generation': 'Video Generation',
+    'image-generation': 'Image Generation',
+    'writing-grammar': 'Writing & Grammar',
+    'coding-development': 'Coding & Development',
+    'voice-audio': 'Voice & Audio',
+    'social-media': 'Social Media',
     'productivity': 'Productivity',
     'marketing': 'Marketing',
-    'video-audio': 'Video & Audio',
-    'image-generation': 'Image Generation',
-    'ai-assistants': 'AI Assistants',
-    'social-media': 'Social Media',
-    'seo': 'SEO Tools',
+    'seo-tools': 'SEO Tools',
     'customer-service': 'Customer Service',
-    'email': 'Email Assistants',
-    'voice-audio': 'Voice & Audio'
+    'email-assistants': 'Email Assistants'
   }
   
   const categoryName = categoryMap[slug]
@@ -64,53 +62,50 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   // Map category names to descriptions
   const categoryDescriptions: Record<string, string> = {
-    'Development': 'Tools for software development, coding, and programming',
-    'Design': 'Tools for graphic design, UI/UX, and creative work',
-    'Writing & Content': 'Tools for content creation, writing, and editing',
-    'Productivity': 'Tools to enhance workflow and productivity',
-    'Marketing': 'Tools for digital marketing, SEO, and advertising',
-    'Video & Audio': 'Tools for video and audio creation and editing',
-    'Image Generation': 'Tools for AI-powered image creation and editing',
     'AI Assistants': 'Conversational AI tools for various tasks and assistance',
+    'Video Generation': 'Tools for creating and editing videos using AI capabilities',
+    'Image Generation': 'Tools for AI-powered image creation and editing',
+    'Writing & Grammar': 'Tools for improving writing, grammar checking, and content creation',
+    'Coding & Development': 'AI tools for software development, coding, and programming',
+    'Voice & Audio': 'Tools for voice generation, music creation, and audio editing',
     'Social Media': 'Tools for social media management and content creation',
+    'Productivity': 'Tools to enhance workflow, organization, and efficiency',
+    'Marketing': 'Tools for digital marketing, campaigns, and automation',
     'SEO Tools': 'Tools for search engine optimization and website analysis',
-    'Customer Service': 'AI tools for customer support and service',
-    'Email Assistants': 'Tools to enhance email productivity and management',
-    'Voice & Audio': 'Tools for voice generation, music creation, and audio editing'
+    'Customer Service': 'AI chatbots and tools for customer support and engagement',
+    'Email Assistants': 'Tools for managing, composing, and optimizing emails'
   }
 
   // Map category to icon
   const categoryIcons: Record<string, string> = {
-    'Development': '💻',
-    'Design': '🎨',
-    'Writing & Content': '✍️',
+    'AI Assistants': '🤖',
+    'Video Generation': '🎬',
+    'Image Generation': '🖼️',
+    'Writing & Grammar': '✍️',
+    'Coding & Development': '💻',
+    'Voice & Audio': '🔊',
+    'Social Media': '📱',
     'Productivity': '⚡',
     'Marketing': '📈',
-    'Video & Audio': '🎬',
-    'Image Generation': '🖼️',
-    'AI Assistants': '🤖',
-    'Social Media': '📱',
     'SEO Tools': '🔍',
     'Customer Service': '💬',
-    'Email Assistants': '📧',
-    'Voice & Audio': '🔊'
+    'Email Assistants': '📧'
   }
 
   // Map to category-specific recommended tools based on our enhanced Best AI Tools list
   const recommendedToolsByCategory: Record<string, string[]> = {
     'AI Assistants': ["ChatGPT", "Claude", "Gemini", "DeepSeek", "Grok", "Perplexity", "Anthropic", "YouChat", "Bard"],
-    'Video & Audio': ["Synthesia", "Runway", "Filmora", "OpusClip", "Lumen5", "Pictory", "Vyond", "InVideo", "Descript", "Moovly"],
+    'Video Generation': ["Synthesia", "Runway", "D-ID", "Lumen5", "DeepBrain AI", "InVideo", "Elai.io"],
     'Image Generation': ["Midjourney", "DALL-E", "Stable Diffusion", "Leonardo AI", "Canva Magic", "Nightcafe", "Adobe Firefly", "Dream by WOMBO", "Bing Image Creator"],
-    'Writing & Content': ["Jasper", "Rytr", "Sudowrite", "Grammarly", "Wordtune", "Copy.ai", "QuillBot", "Anyword", "Writesonic", "Hemingway Editor"],
-    'Development': ["GitHub Copilot", "Cursor", "Replit", "Bubble", "v0", "CodeWhisperer", "Tabnine", "DeepCode", "CodeGPT", "Codeium"],
-    'Voice & Audio': ["ElevenLabs", "Play.ht", "Murf", "Suno", "Podcastle", "Udio", "Resemble.ai", "Descript Audio", "Listnr", "WellSaid Labs"],
+    'Writing & Grammar': ["Jasper", "Grammarly", "QuillBot", "Wordtune", "Hemingway Editor", "Sudowrite", "ProWritingAid", "Copy.ai", "Rytr", "Writesonic"],
+    'Coding & Development': ["GitHub Copilot", "Cursor", "Tabnine", "Codeium", "OpenAI Codex", "Replit Ghostwriter", "CodeWhisperer", "DeepCode", "CodeGPT"],
+    'Voice & Audio': ["ElevenLabs", "Play.ht", "Murf", "Suno", "Podcastle", "Udio", "Resemble.ai", "Descript", "Listnr", "WellSaid Labs"],
     'Social Media': ["Buffer", "Hootsuite", "Vista Social", "FeedHive", "Later", "Sprout Social", "Agorapulse", "Planoly", "MeetEdgar", "Loomly"],
     'Productivity': ["Notion AI", "Reclaim", "Clockwise", "Mem", "Taskade", "Otter.ai", "Motion", "Sunsama", "Akiflow", "Timeular"],
     'Marketing': ["AdCreative", "MarketMuse", "Anyword", "Lately", "Persado", "Phrasee", "Unbounce", "Concured", "Pathfactory", "Drift"],
     'SEO Tools': ["Surfer SEO", "Clearscope", "Frase", "MarketMuse", "GrowthBar", "SEMrush", "Ahrefs", "Moz", "Serpstat", "SE Ranking"],
     'Customer Service': ["Intercom", "Tidio AI", "Hiver", "Drift", "Zendesk", "Freshchat", "Kommunicate", "Ada", "Kustomer", "LivePerson"],
-    'Email Assistants': ["Superhuman", "SaneBox", "Shortwave", "Lavender", "Vero", "Flowrite", "Mailchimp", "Grammarly", "Front", "Postaga"],
-    'Design': ["Midjourney", "Canva", "Figma", "Adobe Firefly", "Framer"]
+    'Email Assistants': ["Superhuman", "SaneBox", "Shortwave", "Lavender", "Flowrite", "Gmelius", "Mailbutler", "Mailchimp", "Grammarly", "Front"]
   }
 
   // Get recommended tools for this category
@@ -248,38 +243,86 @@ function getToolDescription(name: string, category: string): string {
     
     // Video Generation
     "Synthesia": "AI video creation platform with virtual avatars that speak in over 140 languages.",
-    "Runway": "AI creative suite for video editing, generation, and visual effects.",
-    "Filmora": "AI-powered video editing software with automated features and effects.",
-    "OpusClip": "AI video editing tool that automatically creates short clips from longer videos.",
-    "Lumen5": "AI-powered video creation platform that transforms text content into engaging videos.",
+    "Runway": "Creative toolkit with AI video editing, effects, and generation capabilities.",
+    "D-ID": "Platform for creating talking head videos from text using AI avatars.",
+    "Lumen5": "AI-powered video creation platform that turns blog posts and text into engaging videos.",
+    "DeepBrain AI": "Platform for creating AI avatars and human-like digital presenters for videos.",
+    "InVideo": "Online video creation platform with AI-powered templates and editing tools.",
+    "Elai.io": "AI video generation platform that creates videos from text without any video production skills.",
     
-    // Image Generation
-    "Midjourney": "AI art generator creating stunning images from text descriptions with artistic flair.",
-    "DALL-E": "OpenAI's image generation system that creates realistic images from text prompts.",
-    "Stable Diffusion": "Open-source AI art generator for creating images from text descriptions.",
-    "Leonardo AI": "Advanced AI image generator with fine-tuning capabilities for consistent styles.",
+    // Writing & Grammar
+    "Jasper": "AI content platform that helps create marketing copy, blog posts, and other content.",
+    "Grammarly": "AI writing assistant that helps with grammar, clarity, and writing style.",
+    "QuillBot": "AI-powered paraphrasing tool that helps rewrite and enhance text.",
+    "Wordtune": "AI writing companion that helps rewrite, rephrase, and reword your text.",
+    "Hemingway Editor": "Writing tool that helps make your writing bold and clear by highlighting complex sentences.",
+    "Sudowrite": "AI writing tool designed specifically for fiction writers and creative writing.",
+    "ProWritingAid": "Grammar checker, style editor, and writing mentor in one package.",
     
-    // Design
-    "Canva": "Online design platform with AI-powered design tools and templates.",
-    "Figma": "Collaborative design platform with AI-enhanced prototyping capabilities.",
-    "Framer": "Web design and interactive prototyping tool with AI components."
+    // Coding & Development
+    "GitHub Copilot": "AI pair programmer that suggests code completions based on context.",
+    "Cursor": "AI-first code editor that helps developers write, understand, and fix code faster.",
+    "Tabnine": "AI code completion assistant that helps developers code faster with whole-line and full-function code completions.",
+    "Codeium": "Free AI-powered code completion tool that integrates with many IDEs and supports multiple languages.",
+    "OpenAI Codex": "AI system that translates natural language to code across many programming languages.",
+    "Replit Ghostwriter": "AI pair programmer integrated directly into Replit's development environment.",
+    
+    // Email Assistants
+    "Superhuman": "Email client with AI-powered features that helps you work through your inbox twice as fast.",
+    "SaneBox": "Email management tool that uses AI to filter unimportant emails out of your inbox.",
+    "Shortwave": "Smart email client that organizes your inbox automatically.",
+    "Lavender": "Email AI assistant that helps you write better emails that get responses.",
+    "Flowrite": "AI writing tool that turns short instructions into ready-to-send emails and messages.",
+    "Gmelius": "Gmail enhancement suite with AI features for email collaboration and automation.",
+    "Mailbutler": "Email productivity tool with smart AI features for Apple Mail, Gmail, and Outlook.",
   }
-  
-  return descriptions[name] || `Advanced AI tool for ${category.toLowerCase()} that enhances productivity and creativity.`
+
+  return descriptions[name] || 
+    `AI-powered ${name} tool for ${category.toLowerCase()} tasks and workflows.`
 }
 
 // Helper function to get tags for specific tools
 function getToolTags(name: string, category: string): string[] {
-  const baseTags = [category.toLowerCase().replace(/\s+/g, ''), 'ai']
-  
-  const specificTags: Record<string, string[]> = {
-    "ChatGPT": ["chatbot", "language model", "openai"],
-    "Claude": ["chatbot", "anthropic", "reasoning"],
-    "DALL-E": ["image", "art", "openai"],
-    "Midjourney": ["art", "design", "image generation"],
-    "GitHub Copilot": ["coding", "programming", "developer"],
-    "Notion AI": ["workspace", "productivity", "notes"],
+  const tagMap: Record<string, string[]> = {
+    // Video Generation
+    "Synthesia": ["AI Avatars", "Text-to-Video", "Multilingual"],
+    "Runway": ["Video Editing", "AI Generation", "Motion Graphics"],
+    "D-ID": ["Talking Heads", "Avatars", "Presentation"],
+    "Lumen5": ["Content Repurposing", "Marketing", "Social Media"],
+    "DeepBrain AI": ["AI Presenters", "Corporate Videos", "Realistic Avatars"],
+    "InVideo": ["Templates", "Marketing", "Easy Editing"],
+    "Elai.io": ["No-code", "AI Presenters", "Text to Video"],
+    
+    // Coding & Development
+    "GitHub Copilot": ["Code Completion", "Pair Programming", "Multiple Languages"],
+    "Cursor": ["Code Editor", "Chat Assistant", "Code Understanding"],
+    "Tabnine": ["Code Completion", "IDE Integration", "Multiple Languages"],
+    "Codeium": ["Free", "IDE Extension", "Code Completion"],
+    "OpenAI Codex": ["Natural Language", "Code Generation", "API"],
+    "Replit Ghostwriter": ["Pair Programming", "Online IDE", "Code Generation"],
+    
+    // Writing & Grammar
+    "Grammarly": ["Grammar Checker", "Writing Assistant", "Style Editing"],
+    "QuillBot": ["Paraphrasing", "Summarization", "Grammar"],
+    "Wordtune": ["Rewriting", "Tone Adjustment", "Clarity"],
+    "Hemingway Editor": ["Readability", "Simplification", "Editing"],
+    "Sudowrite": ["Fiction", "Creative Writing", "Story Generation"],
+    "ProWritingAid": ["Style Analysis", "Grammar", "Writing Reports"],
+    
+    // Email Assistants
+    "Superhuman": ["Email Client", "Productivity", "Speed"],
+    "SaneBox": ["Email Filtering", "Priority Inbox", "Organization"],
+    "Shortwave": ["Smart Inbox", "Organization", "Automation"],
+    "Lavender": ["Email Coaching", "Response Rate", "Writing Assistant"],
+    "Flowrite": ["Email Generation", "Templates", "Browser Extension"],
+    "Gmelius": ["Gmail", "Collaboration", "Workflow"],
+    "Mailbutler": ["Email Tracking", "Scheduling", "Templates"],
   }
-  
-  return specificTags[name] || [...baseTags, 'productivity', 'tool']
+
+  return tagMap[name] || 
+    category === "Writing & Grammar" ? ["Writing", "AI Assistant", "Content"] :
+    category === "Coding & Development" ? ["Coding", "Development", "AI Assistant"] :
+    category === "Video Generation" ? ["Video", "Content Creation", "AI Generation"] :
+    category === "Email Assistants" ? ["Email", "Productivity", "Communication"] :
+    ["AI Tool", category, "Productivity"]
 } 
